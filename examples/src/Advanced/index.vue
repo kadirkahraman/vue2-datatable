@@ -59,6 +59,7 @@ export default {
       total: 0,
       selection: [],
       summary: {},
+      dblClickRow:(row)=>{console.log(row)},
 
       // `query` will be initialized to `{ limit: 10, offset: 0, sort: '', order: '' }` by default
       // other query conditions should be either declared explicitly in the following or set with `Vue.set / $vm.$set` manually later
