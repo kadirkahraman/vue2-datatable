@@ -15,7 +15,7 @@ export default {
     fixHeaderAndSetBodyMaxHeight: Number, // a fancy prop which combines two props into one
     supportNested: [Boolean, String], // support nested components feature (String is only for 'accordion')
     supportBackup: Boolean, // support backup for `HeaderSettings`
-    dblClickRow: [Function]
+    dblClickRow: { type: Function, required: false, default: () => {} }
   },
   data () {
     let datatableInstance = this
