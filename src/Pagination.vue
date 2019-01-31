@@ -43,6 +43,7 @@ export default {
     dspBtns () {
       const n = this.totalPage
       const i = this.curPage
+
       this.checkPageCounts()
 
       /* eslint-disable */
