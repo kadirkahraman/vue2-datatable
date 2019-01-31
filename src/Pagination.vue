@@ -43,6 +43,7 @@ export default {
     dspBtns () {
       const n = this.totalPage
       const i = this.curPage
+      this.checkPageCounts()
 
       /* eslint-disable */
       if (n <= 9) return ((n) => {
@@ -57,6 +58,11 @@ export default {
     }
   },
   methods: {
+    checkPageCounts() {
+      if (this.curPage > this.totalPage && (this.curPage !== 1)) {
+        this.handleClick(this.curPage - 1)
+      }
+    },
     handleClick (n) {
       this.query.offset = (n - 1) * +this.query.limit
     },
