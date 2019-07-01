@@ -11,6 +11,9 @@
     
     <div v-if="Pagination" class="row" style="margin-top: 10px">
       <div class="col-sm-6">
+        <strong v-if="selected">
+          {{ $i18nForDatatable('Selected') }} {{ selected }} {{ $i18nForDatatable(',') }}
+        </strong>
         <strong>
           {{ $i18nForDatatable('Total') }} {{ total }} {{ $i18nForDatatable(',') }}
         </strong>

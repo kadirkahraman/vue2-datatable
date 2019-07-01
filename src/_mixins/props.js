@@ -3,6 +3,7 @@ export default {
     columns: { type: Array, required: true },
     data: { type: Array, required: true }, // rows
     total: { type: Number, required: true },
+    selected : { type: Number, required: false },
     query: { type: Object, required: true },
     selection: Array, // container for multi-select
     summary: Object, // an extra summary row
