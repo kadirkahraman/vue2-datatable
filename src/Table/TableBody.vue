@@ -6,12 +6,13 @@
           <td v-if="shouldRenderSelection">
             <multi-select :selection="selection" :row="item" />
           </td>
-          <td v-for="col in columns" :class="col.tdClass" :style="col.tdStyle">
+          <td v-for="(col, index) in columns" :class="col.tdClass" :style="col.tdStyle">
             <!-- <td> component (tdComp) -->
             <component
               v-if="col.tdComp"
               :is="forDynCompIs(col.tdComp)"
               :row="item"
+              :columnIndex="index"
               :field="col.field"
               :value="item[col.field]"
               :nested="item.__nested__"
