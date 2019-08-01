@@ -12,7 +12,7 @@ export default {
     columns: [
       { title: 'User ID', field: 'uid', sortable: true },
       { title: 'Username', field: 'name' },
-      { title: 'Age', field: 'age', sortable: true, visible: false},
+      { title: 'Age', field: 'age', sortable: true },
       { title: 'Email', field: 'email' },
       { title: 'Country', field: 'country' }
     ],
