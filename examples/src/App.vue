@@ -42,6 +42,9 @@
         <li :class="{ active: showTab === 'fixed' }">
           <a href="#fixed">Fixed ( header and columns )</a>
         </li>
+        <li :class="{ active: showTab === 'MaxColBasic' }">
+          <a href="#MaxColBasic">Basic ( max cols )</a>
+        </li>
       </ul>
       <div class="tab-content" style="margin-top: 10px">
         <div class="tab-pane" :class="{ active: showTab === 'basic' }">
@@ -52,6 +55,9 @@
         </div>
         <div class="tab-pane" :class="{ active: showTab === 'fixed' }">
           <fixed v-if="showTab === 'fixed'" />
+        </div>
+        <div class="tab-pane" :class="{ active: showTab === 'MaxColBasic' }">
+          <max-col-basic v-if="showTab === 'MaxColBasic'" />
         </div>
       </div>
       <hr />
@@ -72,9 +78,10 @@ import Basic from './Basic/'
 import Advanced from './Advanced/'
 import Fixed from './Fixed/'
 import capitalize from 'lodash/capitalize'
+import MaxColBasic from './MaxColBasic/'
 
 export default {
-  components: { Basic, Advanced, Fixed },
+  components: { Basic, Advanced, Fixed,MaxColBasic },
   data: () => ({
     showTab: getCurHash()
   }),
