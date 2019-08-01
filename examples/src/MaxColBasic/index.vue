@@ -13,12 +13,13 @@ export default {
       { title: 'User ID', field: 'uid', sortable: true },
       { title: 'Username', field: 'name' },
       { title: 'Age', field: 'age', sortable: true, visible: false},
-      { title: 'Email', field: 'email' },
+      { title: 'Email', field: 'email' , visible: false},
       { title: 'Country', field: 'country' }
     ],
     data: [],
     total: 0,
-    query: {}
+    query: {},
+    maxCols:3
   }),
   watch: {
     query: {

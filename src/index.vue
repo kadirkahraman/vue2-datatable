@@ -1,8 +1,11 @@
 <template>
   <div name="Datatable">
     <div v-if="$slots.default || HeaderSettings" class="clearfix" style="margin-bottom: 10px">
-      <header-settings v-if="HeaderSettings" class="pull-right"
-        :columns="columns" :support-backup="supportBackup">
+      <header-settings v-if="HeaderSettings" 
+                       class="pull-right"
+                       :columns="columns" 
+                       :support-backup="supportBackup"
+                       :max-cols=maxCols>
       </header-settings>
       <slot />
     </div>

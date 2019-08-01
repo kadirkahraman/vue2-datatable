@@ -7,8 +7,11 @@
     <div class="dropdown-menu clearfix" :style="drpMenuStyle">
       <div class="-col-group-container">
         <column-group v-for="(columns, groupName) in colGroups"
-          ref="colGroups" :key="groupName"
-          :group-name="groupName" :columns="columns">
+                      ref="colGroups" 
+                      :key="groupName"
+                      :group-name="groupName" 
+                      :columns="columns"
+                      :max-cols="maxCols">
         </column-group>
       </div>
       <div class="clearfix" style="margin: 10px 0">
@@ -55,7 +58,8 @@ export default {
   components: { ColumnGroup },
   props: {
     columns: { type: Array, required: true },
-    supportBackup: { type: Boolean, required: true }
+    supportBackup: { type: Boolean, required: true },
+    maxCols:{type:Number,required:true}
   },
   data () {
     const origSettings = stringify(this.columns)
