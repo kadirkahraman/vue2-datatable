@@ -40,16 +40,19 @@
         },
         computed: {
             checkedItemCount() {
+                this.checkedElements=this.checkedItems;
+                return Object.values(this.checkedElements)
+                	.filter(val=>val)
+                	.length;
+            },
+            checkedItems(){
                 let fieldVisibilities = this.columns
                     .map(col => ({[col.field]: col.hasOwnProperty('visible') ? col.visible : true}))
                     .reduce((previousValue, currentValue) => ({...previousValue, ...currentValue}), {});
                 const changes = this.changes
-                	.map(changed => ({[changed.col.field]: changed.isChecked}))
+                    .map(changed => ({[changed.col.field]: changed.isChecked}))
                     .reduce((previousValue, currentValue) => ({...previousValue, ...currentValue}), {});
-                this.checkedElements = {...fieldVisibilities,...changes};
-                return Object.values(this.checkedElements)
-                	.filter(val=>val)
-                	.length;
+                return {...fieldVisibilities,...changes};
             }
         },
         methods: {
@@ -64,6 +67,7 @@
                 this.changes.forEach(({col, isChecked}) => {
                     this.$set(col, 'visible', isChecked)
                 })
+                this.checkedElements=this.checkedItems;
                 this.changes = [] // don't forget to clear the stack
             },
             isColumnVisible(col){
