@@ -1,6 +1,6 @@
 <template>
   <!-- complex mode -->
-  <div v-if="useComplexMode" name="ComplexTable" class="-complex-table scrollable-content">
+  <div v-if="useComplexMode" name="ComplexTable" class="-complex-table -scrollable-content">
     <template v-for="x in ['Header', 'Body', 'Footer']">
       <div v-if="x !== 'Footer' || x === 'Footer' && summary"
         ref="wrappers" :name="`Table${x}Wrapper`" :class="`-table-${x.toLowerCase()}`"
@@ -33,7 +33,7 @@
     </template>
   </div>
   <!-- simple mode -->
-  <div v-else name="SimpleTable" class="scrollable-content">
+  <div v-else name="SimpleTable" class="-scrollable-content">
     <table-frame v-bind="propsToNormalTable">
       <table-header v-bind="propsToNormalTable" />
       <table-body v-bind="propsToNormalTable" />
@@ -124,7 +124,7 @@ export default {
 .-right-fixed {
   box-shadow: 1px 0 5px #ddd;
 }
-.scrollable-content {
+.-scrollable-content {
   overflow: scroll;
 }
 </style>
