@@ -125,6 +125,6 @@ export default {
   box-shadow: 1px 0 5px #ddd;
 }
 .-scrollable-content {
-  overflow: scroll;
+  overflow-x: auto;
 }
 </style>
