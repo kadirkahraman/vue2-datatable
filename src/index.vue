@@ -1,5 +1,5 @@
 <template>
-  <div name="Datatable">
+  <div name="Datatable" class="-prevent-overflow">
     <div v-if="$slots.default || HeaderSettings" class="clearfix" style="margin-bottom: 10px">
       <header-settings v-if="HeaderSettings" 
                        class="pull-right"
@@ -115,5 +115,8 @@ export default {
 }
 .fade-enter, .fade-leave-active {
   opacity: 0;
+}
+.-prevent-overflow{
+    overflow: hidden;
 }
 </style>

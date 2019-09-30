@@ -45,6 +45,9 @@
         <li :class="{ active: showTab === 'MaxColBasic' }">
           <a href="#MaxColBasic">Basic ( max cols )</a>
         </li>
+        <li :class="{ active: showTab === 'ManyCols' }">
+          <a href="#ManyCols">Many Columns</a>
+        </li>
       </ul>
       <div class="tab-content" style="margin-top: 10px">
         <div class="tab-pane" :class="{ active: showTab === 'basic' }">
@@ -58,6 +61,9 @@
         </div>
         <div class="tab-pane" :class="{ active: showTab === 'MaxColBasic' }">
           <max-col-basic v-if="showTab === 'MaxColBasic'" />
+        </div>
+        <div class="tab-pane" :class="{ active: showTab === 'ManyCols' }">
+          <many-cols v-if="showTab === 'ManyCols'" />
         </div>
       </div>
       <hr />
@@ -79,9 +85,10 @@ import Advanced from './Advanced/'
 import Fixed from './Fixed/'
 import capitalize from 'lodash/capitalize'
 import MaxColBasic from './MaxColBasic/'
+import ManyCols from './ManyCols/'
 
 export default {
-  components: { Basic, Advanced, Fixed,MaxColBasic },
+  components: { Basic, Advanced, Fixed,MaxColBasic ,ManyCols},
   data: () => ({
     showTab: getCurHash()
   }),
