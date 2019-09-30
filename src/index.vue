@@ -117,6 +117,7 @@ export default {
   opacity: 0;
 }
 .-prevent-overflow{
-    overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 </style>
