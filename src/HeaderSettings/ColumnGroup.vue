@@ -34,9 +34,12 @@
         	};
         },
         created(){
-        	this.checkedElements=this.columns
+        	this.checkedElements=localStorage.getItem("columns") == null?this.columns
                     .map(col => ({[col.field]: col.hasOwnProperty('visible') ? col.visible : true}))
-                    .reduce((previousValue, currentValue) => ({...previousValue, ...currentValue}), {});
+                    .reduce((previousValue, currentValue) => ({...previousValue, ...currentValue}), {}) : JSON.parse(localStorage.getItem("columns"))
+            this.columns.forEach(col => {
+                this.$set(col, 'visible', this.checkedElements.hasOwnProperty(col.field) ? this.checkedElements[col.field]: true)
+            })
         },
         computed: {
             checkedItemCount() {
@@ -67,6 +70,7 @@
                 this.changes.forEach(({col, isChecked}) => {
                     this.$set(col, 'visible', isChecked)
                 })
+                localStorage.setItem("columns", JSON.stringify(this.checkedItems))
                 this.checkedElements=this.checkedItems;
                 this.changes = [] // don't forget to clear the stack
             },
