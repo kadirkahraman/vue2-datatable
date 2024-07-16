@@ -34,9 +34,9 @@
         	};
         },
         created(){
-        	this.checkedElements=localStorage.getItem("columns") == null?this.columns
+        	this.checkedElements=sessionStorage.getItem("soar-presistance-columns") == null?this.columns
                     .map(col => ({[col.field]: col.hasOwnProperty('visible') ? col.visible : true}))
-                    .reduce((previousValue, currentValue) => ({...previousValue, ...currentValue}), {}) : JSON.parse(localStorage.getItem("columns"))
+                    .reduce((previousValue, currentValue) => ({...previousValue, ...currentValue}), {}) : JSON.parse(sessionStorage.getItem("soar-presistance-columns"))
             this.columns.forEach(col => {
                 this.$set(col, 'visible', this.checkedElements.hasOwnProperty(col.field) ? this.checkedElements[col.field]: true)
             })
@@ -70,7 +70,7 @@
                 this.changes.forEach(({col, isChecked}) => {
                     this.$set(col, 'visible', isChecked)
                 })
-                localStorage.setItem("columns", JSON.stringify(this.checkedItems))
+                sessionStorage.setItem("soar-presistance-columns", JSON.stringify(this.checkedItems))
                 this.checkedElements=this.checkedItems;
                 this.changes = [] // don't forget to clear the stack
             },
